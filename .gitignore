@@ -1,0 +1,6 @@
+#   npm modulos
+node_modules
+*.json
+
+#   error log
+*.log
