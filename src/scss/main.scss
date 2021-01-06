@@ -28,7 +28,26 @@ body {
   margin-right: auto;
 }
 
+button {
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+.hide-menu {
+  left: -100% !important;
+}
+.show-menu {
+  left: 0 !important;
+}
+
+button:focus,
+input:focus,
+a:focus {
+  outline: none; }
+
 .header{
+  position: relative;
   background: rgb(41, 41, 41);
   width: 100%;
   height: 60px;
@@ -44,24 +63,88 @@ body {
     height: 40px;
   }
 }
+.hamburger-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 .3rem; 
+
+  & span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ececec;
+    margin: .4rem 0;
+    transition: all 500ms ease-in-out; 
+  }
+
+  &:hover > span {
+    background-color: #ffe300;
+  }
+}
+
 .main-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #404040;
+  width: 80%;
+  transition: all 0.5s ease;
+
   & ul {
-    @include flex(space-between, center);
 
     & .nav-item {
       list-style: none;
+      box-shadow: 0 1px #4e4e4e;
 
       & a {
         color: white;
         text-decoration: none;
-        padding: .4rem .6rem;
-        margin-left: 1rem;
+        display: inline-block;
+        padding: .5rem 2rem;
+        width: 100%;
 
         &:hover {
+          background-color: #383838;
           color: #ffe300;
           text-decoration: overline;
         }
       }
     }
   }
+}
+
+.main {
+  & .content-img {
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+@media screen and (min-width: 414px) {
+  // .main-nav {
+  //   & ul {
+  //     @include flex(space-between, center);
+  
+  //     & .nav-item {
+  //       list-style: none;
+  
+  //       & a {
+  //         color: white;
+  //         text-decoration: none;
+  //         padding: .4rem .6rem;
+  //         margin-left: 1rem;
+  
+  //         &:hover {
+  //           color: #ffe300;
+  //           text-decoration: overline;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
